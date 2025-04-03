@@ -1,0 +1,388 @@
+/* ========== RESET DEFAULT STYLES ========== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Ensuring same font everywhere */
+}
+
+/* ========== TOP NAVIGATION BAR ========== */
+.top-bar {
+    background-color: #2c3e50; /* Dark Blue Background */
+    color: white;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, sans-serif; /* Applying the same font */
+}
+
+/* ========== SEARCH BAR ========== */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+/* Input Field */
+.search-container input {
+    border: none;
+    padding: 8px 10px;
+    outline: none;
+    width: 200px;
+    font-family: Arial, sans-serif;
+}
+
+/* Search Button */
+.search-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* Navigation Links */
+nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Arial, sans-serif; /* Keeping font consistent */
+}
+
+/* Language Dropdown */
+#language {
+    margin-left: 10px;
+    padding: 3px;
+    border-radius: 5px;
+    border: none;
+    font-family: Arial, sans-serif; /* Applying same font */
+}
+
+/* ========== MAIN HEADER CONTENT ========== */
+.main-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a slight shadow */
+    font-family: Arial, sans-serif; /* Ensuring consistent font */
+}
+
+/* Department Logo */
+.logo {
+    height: 80px;
+    margin-right: 15px;
+}
+
+/* Title Styling */
+.title h1 {
+    color: #d35400; /* Dark Orange */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Keeping font same */
+}
+
+.title h2 {
+    color: #999; /* Grey */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Ensuring same font */
+}
+
+/* ========== RIGHT SECTION: CALL CENTER & LOGOS ========== */
+.right-logos {
+    margin-left: auto;
+    text-align: right;
+    font-family: Arial, sans-serif; /* Keeping text consistent */
+}
+
+/* Call Center Logos */
+.right-logos img {
+    height: 50px;
+    margin-left: 10px;
+}
+/* ========== RED NAVIGATION BAR ========== */
+.red-navbar {
+    background-color: #d63c30;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping */
+    overflow: hidden; /* Hides overflow */
+}
+
+/* Menu Items */
+.nav-menu li {
+    position: relative;
+    padding: 4px 6px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+/* Menu Links */
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #b12a20;
+    list-style: none;
+    padding: 2px 0;
+    min-width: 130px;
+    top: 100%;
+    left: 0;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu li {
+    padding: 3px 6px;
+}
+
+.dropdown-menu a {
+    color: white;
+    display: block;
+    font-size: 10px;
+}
+
+/* Show Dropdown on Hover (Desktop) */
+@media screen and (min-width: 769px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Dropdown Icon */
+.nav-menu a i {
+    font-size: 10px;
+    margin-left: 3px;
+}
+
+/* "New" Tag */
+.new-tag {
+    color: yellow;
+    font-weight: bold;
+    font-size: 9px;
+}
+
+/* ========== HAMBURGER MENU (MOBILE) ========== */
+.hamburger-menu {
+    display: none;
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Hide menu initially */
+        flex-direction: column;
+        background: #d63c30;
+        width: 100%;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        text-align: center;
+    }
+
+    /* Show menu when active */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        padding: 6px;
+        width: 100%;
+    }
+
+    /* Hamburger Menu Visible */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Dropdown Toggle for Mobile */
+    .dropdown-menu {
+        position: static;
+        display: none;
+        background: none;
+        padding-left: 10px;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Prevents List Item from Wrapping */
+.nav-menu li {
+    white-space: nowrap;
+}
+/* ====== LEADERS SECTION ====== */
+/* ====== LEADERS SECTION ====== */
+.leaders-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+    position: relative;
+    background: linear-gradient(to bottom right, #f29422 40%, #e14436 60%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    min-height: 150px;
+}
+
+.leader-card {
+    text-align: center;
+    width: 150px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.leader-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.leader-card h3 {
+    font-size: 14px;
+    margin: 8px 0 4px;
+    font-weight: bold;
+}
+
+.leader-card p {
+    font-size: 12px;
+    margin: 0;
+}
+
+/* Responsive Fix */
+@media screen and (max-width: 768px) {
+    .leaders-section {
+        flex-direction: column;
+        clip-path: none;
+        background: linear-gradient(to bottom right, #f29422 40%, #e14436 60%);
+        min-height: auto;
+    }
+}
+.bldg image {
+    width: 80%;
+    height: 80%;
+    border-radius: 5px;
+    margin-top: 10px;
+}.bldg-section {
+    display: flex; /* Places images side by side */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Cuts excess of the second image */
+    white-space: nowrap; /* Prevents images from wrapping */
+}
+
+.bldg {
+    height: auto; /* Keeps original height */
+    width: auto; /* Natural width */
+    flex-grow: 1; /* Stretches to cover full width */
+    object-fit: cover; /* Cuts off excess part */
+}
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: #002147;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* Navigation Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* News Section */
+.news-section {
+    background: #1d5fa7;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+.news-section img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Footer */
+.footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+.footer a {
+    color: yellow;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.footer-logo img {
+    width: 80px;
+}
