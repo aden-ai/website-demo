@@ -5,6 +5,16 @@
     <title>Motor Vehicles Department - Maharashtra</title>
     <link rel="stylesheet" href="../styles.css">
     <meta charset="UTF-8">
+    <style>
+        .manual-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .manual-table th, .manual-table td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        .manual-table th { background-color: #5a87b2; color: white; }
+        .search-section { padding: 20px; background: #f2f2f2; border-radius: 5px; margin: 20px 0; }
+        .search-section input, .search-section select { margin: 5px; padding: 6px; }
+        .search-btn { background-color: #337ab7; color: white; padding: 6px 10px; border: none; cursor: pointer; }
+        .clear-btn { background-color: #d9534f; color: white; padding: 6px 10px; border: none; cursor: pointer; }
+        .pdf-icon { width: 20px; }
+      </style>
 </head>
 <body>
     <!-- ========== HEADER SECTION ========== -->
@@ -69,11 +79,11 @@
         <li class="dropdown">
             <a href="#">About Us ▼</a>
             <ul class="dropdown-menu">
-              <li><a href="../about/establisment.html">Establishment</a></li>
-              <li><a href="#" id="orgStructureLink">Organization Structure</a></li>
-              <li><a href="#" id="orgRevenueLink">Reveneu Information</a></li>
-              <li><a href="#" id="orgNumberofVehiclesLink">Number of Vehicles</a></li>
-              <li><a href="#" id="orgBCILink">Border Checkpoint Information</a></li>
+                <li><a href="../about/establisment.html">Establishment</a></li>
+                <li><a href="#" id="orgStructureLink">Organization Structure</a></li>
+                <li><a href="#" id="orgRevenueLink">Reveneu Information</a></li>
+                <li><a href="#" id="orgNumberofVehiclesLink">Number of Vehicles</a></li>
+                <li><a href="#" id="orgBCILink">Border Checkpoint Information</a></li>
             </ul>
         </li>
         <li class="dropdown">
@@ -124,86 +134,92 @@
         </li>
     </ul>
 </nav>
-<!-- Establisment Container -->
-<div class="establishment-container">
-    <div class="establishment-breadcrumb">
-      <span class="establishment-highlight">Establishment</span>
-      <span>> You are here: </span>
-      <a href="#">Home</a> »
-      <a href="#">About Us</a> »
-      <span>Establishment</span>
-    </div>
-  
-    <p>
-      The Motor Vehicles Department’s functions are monitored and controlled by Transport Commissioner office, located at Mumbai.
-      The State has 15 Regional Transport Offices and 35 Deputy Regional Transport Offices.
-    </p>
-  
-    <p>
-      The provisions of Motor Vehicle Act are enforced through executive officers, while the ministerial work is carried out by clerical staff.
-    </p>
-  
-    <p>
-      In order to run the work of this department, the posts of Officers / employees are approved as on 27.08.2020 as follows.
-    </p>
-  
-    <table class="establishment-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Category</th>
-          <th>Approved Post</th>
-          <th>Filled Post</th>
-          <th>Vacant Post</th>
-          <th>Vacant Post Percentage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Class-1</td>
-          <td>1061</td>
-          <td>751</td>
-          <td>310</td>
-          <td>29.21</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Class-2</td>
-          <td>47</td>
-          <td>18</td>
-          <td>29</td>
-          <td>61.70</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Class-3</td>
-          <td>3565</td>
-          <td>2327</td>
-          <td>1238</td>
-          <td>34.72</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Class-4</td>
-          <td>427</td>
-          <td>163</td>
-          <td>264</td>
-          <td>61.82</td>
-        </tr>
-        <tr>
-          <td colspan="2">TOTAL</td>
-          <td>5100</td>
-          <td>3259</td>
-          <td>1841</td>
-          <td>36.09</td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <button class="establishment-print-btn">🖨 Print</button>
-  </div>
-  
+<h2>Department Manual</h2>
+
+<div class="search-section">
+  <label>From Date: <input type="date" id="fromDate"></label>
+  <label>To Date: <input type="date" id="toDate"></label>
+  <label>Document Type:
+    <select id="docType">
+      <option value="ALL">ALL</option>
+      <option value="License">License</option>
+      <option value="Insurance">Insurance</option>
+    </select>
+  </label>
+  <label>Keyword Search: <input type="text" id="keyword"></label>
+  <button class="search-btn" onclick="filterTable()">Search</button>
+  <button class="clear-btn" onclick="clearFilters()">Clear</button>
+</div>
+
+<table class="manual-table" id="manualTable">
+  <thead>
+    <tr>
+      <th>Sr. No.</th>
+      <th>Subject</th>
+      <th>Date</th>
+      <th>Size (MB)</th>
+      <th>Download</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+    <!-- JS inserts rows -->
+  </tbody>
+</table>
+
+<script>
+const data = [
+  { sr: 1, subject: "INSURANCE OF MOTOR VEHICLES AGAINST THIRD PARTY RISKS", date: "2015-11-03", size: "0.21", type: "Insurance", file: "pdfs/insurance.pdf" },
+  { sr: 2, subject: "ISSUE OF LEARNER'S LICENSES", date: "2015-11-03", size: "0.36", type: "License", file: "pdfs/learners.pdf" },
+  { sr: 3, subject: "CONDUCTOR LICENSE", date: "2015-11-03", size: "0.33", type: "License", file: "pdfs/conductor.pdf" },
+  { sr: 4, subject: "LIABILITY WITHOUT FAULT IN CERTAIN CASES", date: "2015-11-03", size: "0.16", type: "Insurance", file: "pdfs/liability.pdf" },
+];
+
+function loadTable(rows) {
+  const table = document.getElementById('tableBody');
+  table.innerHTML = "";
+  rows.forEach(row => {
+    table.innerHTML += `
+      <tr>
+        <td>${row.sr}</td>
+        <td>${row.subject}</td>
+        <td>${new Date(row.date).toLocaleDateString()}</td>
+        <td>${row.size}</td>
+        <td><a href="${row.file}" target="_blank"><img class="pdf-icon" src="images/pdf-icon.png" alt="PDF"></a></td>
+      </tr>
+    `;
+  });
+}
+
+function filterTable() {
+  const from = document.getElementById('fromDate').value;
+  const to = document.getElementById('toDate').value;
+  const type = document.getElementById('docType').value;
+  const keyword = document.getElementById('keyword').value.toLowerCase();
+
+  const filtered = data.filter(item => {
+    const date = new Date(item.date);
+    const fromDate = from ? new Date(from) : null;
+    const toDate = to ? new Date(to) : null;
+    const matchesDate = (!fromDate || date >= fromDate) && (!toDate || date <= toDate);
+    const matchesType = type === "ALL" || item.type === type;
+    const matchesKeyword = item.subject.toLowerCase().includes(keyword);
+    return matchesDate && matchesType && matchesKeyword;
+  });
+
+  loadTable(filtered);
+}
+
+function clearFilters() {
+  document.getElementById('fromDate').value = '';
+  document.getElementById('toDate').value = '';
+  document.getElementById('docType').value = 'ALL';
+  document.getElementById('keyword').value = '';
+  loadTable(data);
+}
+
+window.onload = () => loadTable(data);
+</script>
+
 <!-- Footer -->
 <div class="footer">
     <p>
@@ -220,12 +236,7 @@
         <img src="../images/Maha_IT_Logo.png" alt="MahaIT Logo">
     </div>
 </div>
-<script>
-    document.querySelector('.establishment-print-btn').addEventListener('click', function () {
-      window.print();
-    });
-  </script>
-  <script src="../script.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>
 
