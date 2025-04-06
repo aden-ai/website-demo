@@ -425,5 +425,80 @@ body {
   .footer-logo img {
     width: 80px;
   }
+/* === Establishment Page Styles === */
+
+.establishment-container {
+  background: #fff;
+  padding: 20px 40px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.establishment-breadcrumb {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.establishment-breadcrumb a {
+  color: #004080;
+  text-decoration: none;
+}
+
+.establishment-highlight {
+  background-color: orange;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.establishment-container p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.establishment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.establishment-table thead th {
+  background-color: #5a9bd3;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.establishment-table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.establishment-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.establishment-print-btn {
+  margin-top: 20px;
+  background-color: #b3ab56;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  float: right;
+  border-radius: 3px;
+}
+
+.establishment-print-btn:hover {
+  background-color: #999843;
+}
   
   

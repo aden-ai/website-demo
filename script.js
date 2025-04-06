@@ -32,3 +32,26 @@ document.addEventListener("DOMContentLoaded", function () {
         function prevSlide() { showSlide(index - 1); }
 
         setInterval(() => { nextSlide(); }, 3000);
+        document.querySelector(".next").addEventListener("click", nextSlide);
+        document.querySelector(".prev").addEventListener("click", prevSlide);
+        showSlide(index); // Show the first slide initially
+        document.getElementById('orgStructureLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.open('Upload/Organization-Structure.pdf', '_blank');
+          });
+
+          document.getElementById('orgRevenueLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.open('Upload/SOP-for-Enlistig-AIS140-Certified-VLTD-Manufacturers-C.pdf', '_blank');
+          });  
+          document.getElementById('orgNumberofVehiclesLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.open('Upload/Number-of-vehicles.pdf', '_blank');
+          }); 
+          document.getElementById('orgBCILink').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.open('Upload/Border-checkpoint-information.pdf', '_blank');
+          });          
+            
+    
+          
